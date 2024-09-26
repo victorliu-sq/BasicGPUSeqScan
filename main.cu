@@ -1,7 +1,6 @@
 #include <iostream>
 #include <thrust/host_vector.h>
 #include <thrust/device_vector.h>
-// Dont forget to add cuda_runtime header file
 #include <cuda_runtime.h>
 
 constexpr unsigned int N = 5;
