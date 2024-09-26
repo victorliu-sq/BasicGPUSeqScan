@@ -23,7 +23,7 @@ __global__ void kernel_expression_evaluation_1(int* ret_01_v, const int* a, cons
 //     {
 //         if(ret_01_v[i] == 1)
 //         {
-//             ret_x[local_count] = x[i];
+//             ret_x[local_count++] = x[i];
 //         }
 //     }
 // }
