@@ -48,6 +48,8 @@ int main() {
     for (int i = 0; i < N; i++) {
         a_host[i] = i + 1;
     }
+    a_host[2] = 1;
+
     thrust::device_vector<int> a = a_host;
 
     thrust::host_vector<int> b_host(N, 1);
@@ -88,7 +90,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    thrust::host_vector<int> x_host(N, 10);
+    thrust::host_vector<int> x_host(N, 100);
     for (int i = 0; i < N; i++) {
         x_host[i] += i + 1;
     }
@@ -96,7 +98,9 @@ int main() {
     thrust::device_vector<int> x = x_host;
 
     thrust::host_vector<int> ret_x_host;
-    thrust::device_vector<int> ret_x(N, 0);
+
+    const unsigned int num_tuples = psum_host[N-1];
+    thrust::device_vector<int> ret_x(num_tuples, 0);
     // thrust::host_vector<int> y_host(N);
     // thrust::host_vector<int> z_host(N);
 
